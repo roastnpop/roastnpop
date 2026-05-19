@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roast & Pop – Roasted. Popped. Perfect Together.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5ede0;
+      --warm-cream: #ede0cc;
+      --dark-brown: #3b2310;
+      --medium-brown: #6b3d1e;
+      --light-brown: #a0622a;
+      --accent-brown: #c4864b;
+      --soft-tan: #d4b896;
+      --off-white: #faf6f0;
+      --text-dark: #2c1a0e;
+      --text-mid: #5c3d22;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 20px 56px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, #e8d5b8 0%, var(--cream) 65%);
+      text-align: center;
+    }
+
+    .hero-leaves {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* Badge hidden on small phones */
+    .hero-badge {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-40%);
+      width: 80px;
+      height: 80px;
+      border: 1.5px solid var(--medium-brown);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--medium-brown);
+      line-height: 1.4;
+      text-transform: uppercase;
+      animation: spin-slow 20s linear infinite;
+    }
+    @media (max-width: 479px) { .hero-badge { display: none; } }
+
+    @keyframes spin-slow {
+      to { transform: translateY(-40%) rotate(360deg); }
+    }
+    .hero-badge span {
+      display: block;
+      animation: spin-slow-reverse 20s linear infinite;
+    }
+    @keyframes spin-slow-reverse {
+      to { transform: rotate(-360deg); }
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--medium-brown);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      animation: fadeDown 0.8s ease both;
+      flex-shrink: 0;
+    }
+    .brand-icon svg { width: 20px; height: 20px; }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 13vw, 120px);
+      font-weight: 900;
+      color: var(--dark-brown);
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      animation: fadeDown 0.9s 0.1s ease both;
+    }
+
+    .hero-subtitle {
+      margin-top: 14px;
+      font-size: clamp(9px, 2.5vw, 11px);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--medium-brown);
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    .hero-divider {
+      margin: 14px auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeDown 1s 0.3s ease both;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: var(--soft-tan);
+    }
+    .hero-divider .heart { color: var(--accent-brown); font-size: 12px; }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(15px, 4vw, 18px);
+      color: var(--text-mid);
+      animation: fadeDown 1s 0.35s ease both;
+    }
+
+    
+
+    /* Float note no longer absolutely positioned – lives in flow */
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+
+    .hero-img-wrap {
+      margin-top: 28px;
+      width: min(420px, 92vw);
+      animation: fadeUp 1.1s 0.4s ease both;
+    }
+    .hero-img {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 24px 64px rgba(59,35,16,0.2);
+      display: block;
+      object-fit: cover;
+    }
+    .hero-cta {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark-brown);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(59,35,16,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 1.2s 0.6s ease both;
+      min-height: 52px;
+    }
+    .hero-cta:active { transform: scale(0.97); }
+    @media (hover: hover) {
+      .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,35,16,0.32); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══ MENU ═══ */
+    .menu-section {
+      background: var(--off-white);
+      padding: 64px 16px;
+      position: relative;
+    }
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--soft-tan), transparent);
+    }
+
+    .menu-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+
+    .section-label {
+      display: inline-block;
+      background: var(--dark-brown);
+      color: var(--cream);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 4px;
+      margin-bottom: 32px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 480px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+
+    .menu-card {
+      background: var(--cream);
+      border: 1px solid rgba(164,98,42,0.15);
+      border-radius: 18px;
+      padding: 26px 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    @media (hover: hover) {
+      .menu-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(59,35,16,0.12); }
+      .menu-card:hover::after { transform: scaleX(1); }
+    }
+    .menu-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--light-brown), var(--accent-brown));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .menu-card.featured {
+      grid-column: 1 / -1;
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+    .menu-card.featured .menu-card-name { color: var(--cream); }
+    .menu-card.featured .menu-card-price { color: var(--accent-brown); }
+    .menu-card.featured .menu-card-desc { color: var(--soft-tan); }
+    .menu-card.featured .price-pill { background: rgba(196,134,75,0.2); border-color: rgba(196,134,75,0.4); }
+    .menu-card.featured .price-pill-label { color: var(--soft-tan); }
+
+    .menu-card-icon { font-size: 28px; margin-bottom: 10px; }
+
+    .menu-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 700;
+      color: var(--dark-brown);
+      margin-bottom: 6px;
+    }
+
+    .menu-card-desc { font-size: 12px; color: var(--text-mid); margin-bottom: 18px; line-height: 1.6; }
+
+    .price-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .price-pill {
+      background: rgba(164,98,42,0.1);
+      border: 1px solid rgba(164,98,42,0.25);
+      border-radius: 100px;
+      padding: 7px 16px;
+      text-align: center;
+    }
+
+    .price-pill-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-brown); display: block; margin-bottom: 2px; }
+
+    .menu-card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 5vw, 26px);
+      font-weight: 700;
+      color: var(--dark-brown);
+      display: block;
+    }
+
+    .flavor-tags { display: flex; gap: 8px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+    .flavor-tag { background: rgba(164,98,42,0.1); border-radius: 100px; padding: 5px 12px; font-size: 12px; color: var(--medium-brown); }
+
+    .bundle-badge {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: var(--accent-brown);
+      color: white;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ═══ VIBE ═══ */
+    .vibe-section { background: var(--cream); text-align: center; padding: 56px 20px; }
+    .vibe-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+    .vibe-pill {
+      border: 1.5px solid var(--soft-tan);
+      color: var(--medium-brown);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    /* ═══ ORDER ═══ */
+    .order-section {
+      background: var(--dark-brown);
+      text-align: center;
+      padding: 72px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .order-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,134,75,0.15) 0%, transparent 70%);
+    }
+    .order-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,134,75,0.1) 0%, transparent 70%);
+    }
+    .order-inner { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
+
+    .order-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 9vw, 60px);
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .order-title em { font-style: italic; color: var(--accent-brown); }
+
+    .order-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(15px, 4vw, 18px);
+      color: var(--soft-tan);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .wa-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(13px, 3.5vw, 15px);
+      font-weight: 600;
+      padding: 16px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 54px;
+      max-width: 100%;
+    }
+    .wa-button:active { transform: scale(0.97); }
+    @media (hover: hover) {
+      .wa-button:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,0.45); }
+    }
+
+    .order-contact { margin-top: 24px; color: var(--soft-tan); font-size: 13px; opacity: 0.7; }
+    .order-contact strong { color: var(--accent-brown); font-weight: 500; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--warm-cream);
+      padding: 24px 16px;
+      text-align: center;
+      border-top: 1px solid rgba(164,98,42,0.15);
+    }
+    footer p { font-size: 12px; color: var(--soft-tan); letter-spacing: 0.04em; }
+    footer strong { color: var(--medium-brown); font-family: 'Playfair Display', serif; }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-leaves" aria-hidden="true">
+    <svg style="position:absolute;top:0;left:0;width:min(180px,40vw);opacity:0.18" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 180 C40 120 90 60 170 20" stroke="#6b3d1e" stroke-width="1.5" fill="none"/>
+      <path d="M40 160 C60 130 100 80 160 40" stroke="#6b3d1e" stroke-width="1" fill="none"/>
+      <ellipse cx="100" cy="80" rx="45" ry="20" transform="rotate(-30 100 80)" stroke="#6b3d1e" stroke-width="1" fill="none"/>
+    </svg>
+    <svg style="position:absolute;top:0;right:0;width:min(180px,40vw);opacity:0.18;transform:scaleX(-1)" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 180 C40 120 90 60 170 20" stroke="#6b3d1e" stroke-width="1.5" fill="none"/>
+      <path d="M40 160 C60 130 100 80 160 40" stroke="#6b3d1e" stroke-width="1" fill="none"/>
+      <ellipse cx="100" cy="80" rx="45" ry="20" transform="rotate(-30 100 80)" stroke="#6b3d1e" stroke-width="1" fill="none"/>
+    </svg>
+    <svg style="position:absolute;bottom:0;right:0;width:min(140px,30vw);opacity:0.13;transform:rotate(180deg)" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 180 C60 130 120 80 180 40" stroke="#6b3d1e" stroke-width="1.5" fill="none"/>
+      <ellipse cx="120" cy="90" rx="40" ry="18" transform="rotate(-35 120 90)" stroke="#6b3d1e" stroke-width="1" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="hero-badge" aria-label="Cozy Flavor Warm Vibes">
+    <span>Cozy<br>Flavor,<br>Warm<br>Vibes ♥</span>
+  </div>
+
+  <div class="brand-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#6b3d1e" stroke-width="1.5" stroke-linecap="round">
+      <path d="M12 2 C12 2 8 6 8 10 C8 14 12 16 12 16 C12 16 16 14 16 10 C16 6 12 2 12 2Z"/>
+      <line x1="12" y1="16" x2="12" y2="22"/>
+      <line x1="8" y1="19" x2="16" y2="19"/>
+    </svg>
+  </div>
+
+  <h1 class="hero-title">Roast &amp; Pop</h1>
+  <p class="hero-subtitle">Roasted. Popped. Perfect Together.</p>
+  <div class="hero-divider"><span class="heart">♥</span></div>
+  <p class="hero-tagline">Camilan pas, minuman puas!</p>
+
+  <div class="hero-img-wrap">
+    <img src="product.png" alt="Roasted Boba Milk Tea dan Popcorn" class="hero-img" />
+  </div>
+
+  <a href="https://wa.me/6285929934021?text=Halo%20Axel!%20Saya%20mau%20pesan%20dari%20Roast%20%26%20Pop%20%F0%9F%A7%8B"
+     class="hero-cta" target="_blank" rel="noopener">
+    Order Sekarang
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-inner">
+    <div><span class="section-label reveal">Our Menu</span></div>
+    <div class="menu-grid">
+
+      <div class="menu-card featured reveal">
+        <div class="menu-card-icon">🧋</div>
+        <div class="menu-card-name">Roasted Boba Milk Tea</div>
+        <p class="menu-card-desc">Teh susu roasted dengan rasa yang kaya, tersedia dengan atau tanpa boba kenyal.</p>
+        <div class="price-row">
+          <div class="price-pill">
+            <span class="price-pill-label">Tanpa Boba</span>
+            <span class="menu-card-price">Rp10.000</span>
+          </div>
+          <div class="price-pill">
+            <span class="price-pill-label">Dengan Boba</span>
+            <span class="menu-card-price">Rp13.000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="menu-card-icon">🍿</div>
+        <div class="menu-card-name">Popcorn</div>
+        <p class="menu-card-desc">Popcorn renyah dan gurih, dua varian rasa favoritmu.</p>
+        <div class="price-row">
+          <div class="price-pill">
+            <span class="price-pill-label">Harga</span>
+            <span class="menu-card-price">Rp3.000</span>
+          </div>
+        </div>
+        <div class="flavor-tags">
+          <span class="flavor-tag">🧀 Keju</span>
+          <span class="flavor-tag">🌶️ Balado</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-2">
+        <span class="bundle-badge">Best Value</span>
+        <div class="menu-card-icon">🎁</div>
+        <div class="menu-card-name">Paket Hemat</div>
+        <p class="menu-card-desc">
+          Roasted Boba Milk Tea + Popcorn (1 Rasa).<br>
+          <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent-brown)">Lebih hemat, lebih nikmat!</em>
+        </p>
+        <div class="price-row">
+          <div class="price-pill">
+            <span class="price-pill-label">Bundling</span>
+            <span class="menu-card-price">Rp15.000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIBE -->
+<section class="vibe-section">
+  <div style="max-width:500px;margin:0 auto">
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,5vw,28px);color:var(--medium-brown);line-height:1.5">
+      "Satu tegukan teh, satu genggaman popcorn — momen sempurna setiap hari."
+    </p>
+    <div class="vibe-pills reveal reveal-delay-1">
+      <span class="vibe-pill">Cozy Flavor</span>
+      <span class="vibe-pill">Warm Vibes</span>
+      <span class="vibe-pill">Fresh Daily</span>
+      <span class="vibe-pill">Made with Love</span>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order-section" id="order">
+  <div class="order-inner">
+    <h2 class="order-title reveal">Mau <em>order</em><br>sekarang?</h2>
+    <p class="order-sub reveal reveal-delay-1">Hubungi kami via WhatsApp,<br>pesanan siap dalam hitungan menit.</p>
+    <a href="https://wa.me/6285929934021?text=Halo%20Axel!%20Saya%20mau%20pesan%20dari%20Roast%20%26%20Pop%20%F0%9F%A7%8B"
+       class="wa-button reveal reveal-delay-2" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="flex-shrink:0">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+      Chat WhatsApp — 085929934021
+    </a>
+    <p class="order-contact reveal reveal-delay-3">Hubungi <strong>Axel</strong> untuk pemesanan &amp; info lebih lanjut</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Roast &amp; Pop</strong> &nbsp;·&nbsp; Roasted. Popped. Perfect Together. &nbsp;·&nbsp; ♥</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
